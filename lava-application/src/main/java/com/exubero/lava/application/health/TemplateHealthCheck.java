@@ -1,4 +1,4 @@
-package com.exubero.lava.health;
+package com.exubero.lava.application.health;
 
 import com.codahale.metrics.health.HealthCheck;
 

@@ -1,0 +1,17 @@
+apply plugin: 'eu.appsatori.fatjar'
+
+dependencies {
+    compile project(':lava-api')
+    compile dropWizardJar
+}
+
+fatJar {
+    baseName = project.name + '-all'
+    manifest {
+        attributes 'Main-Class': 'com.exubero.lava.application.LavaApplication'
+    }
+    exclude 'META-INF/*.SF',  'META-INF/*.DSA', 'META-INF/*.RSA'
+}
+
+
+assemble.dependsOn(':lava-application:fatJar')

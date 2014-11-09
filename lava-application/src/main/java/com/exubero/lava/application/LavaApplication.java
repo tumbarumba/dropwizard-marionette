@@ -1,7 +1,7 @@
-package com.exubero.lava;
+package com.exubero.lava.application;
 
-import com.exubero.lava.health.TemplateHealthCheck;
-import com.exubero.lava.resources.HelloWorldResource;
+import com.exubero.lava.application.health.TemplateHealthCheck;
+import com.exubero.lava.application.resources.HelloWorldResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;

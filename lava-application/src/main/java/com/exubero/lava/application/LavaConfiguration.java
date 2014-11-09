@@ -1,4 +1,4 @@
-package com.exubero.lava;
+package com.exubero.lava.application;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

@@ -1,0 +1,8 @@
+include 'lava-api',
+        'lava-application',
+        'lava-client'
+
+rootProject.name = 'lava'
+project(':lava-api').buildFileName          = 'lava-api.gradle'
+project(':lava-application').buildFileName  = 'lava-application.gradle'
+project(':lava-client').buildFileName       = 'lava-client.gradle'

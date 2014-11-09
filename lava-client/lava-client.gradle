@@ -1,0 +1,8 @@
+apply plugin: 'eu.appsatori.fatjar'
+
+dependencies {
+    compile project(':lava-api')
+    compile dropWizardJar
+}
+
+assemble.dependsOn(':lava-client:fatJar')

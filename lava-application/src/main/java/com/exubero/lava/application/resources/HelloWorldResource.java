@@ -1,7 +1,7 @@
-package com.exubero.lava.resources;
+package com.exubero.lava.application.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import com.exubero.lava.core.Saying;
+import com.exubero.lava.api.Saying;
 import com.google.common.base.Optional;
 
 import javax.ws.rs.GET;

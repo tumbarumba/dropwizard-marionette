@@ -1,0 +1,26 @@
+
+subprojects {
+    apply plugin: 'java'
+
+    ext {
+        groupId = 'com.exubero.lava'
+        version = '0.0.1-SNAPSHOT'
+
+        dropWizardVersion = '0.7.1'
+        dropWizardJar = "io.dropwizard:dropwizard-core:$dropWizardVersion"
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+    }
+}
