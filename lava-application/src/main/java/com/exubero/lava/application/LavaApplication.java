@@ -3,6 +3,7 @@ package com.exubero.lava.application;
 import com.exubero.lava.application.health.TemplateHealthCheck;
 import com.exubero.lava.application.resources.HelloWorldResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -18,7 +19,7 @@ public class LavaApplication extends Application<LavaConfiguration> {
 
     @Override
     public void initialize(Bootstrap<LavaConfiguration> bootstrap) {
-
+        bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
     @Override
@@ -28,6 +29,7 @@ public class LavaApplication extends Application<LavaConfiguration> {
                 configuration.getTemplate(), configuration.getDefaultName());
 
         environment.healthChecks().register("template", healthCheck);
+        environment.jersey().setUrlPattern("/api/*");
         environment.jersey().register(resource);
     }
 

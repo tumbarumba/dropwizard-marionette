@@ -6,8 +6,9 @@ subprojects {
         groupId = 'com.exubero.lava'
         version = '0.0.1-SNAPSHOT'
 
-        dropWizardVersion = '0.7.1'
-        dropWizardJar = "io.dropwizard:dropwizard-core:$dropWizardVersion"
+        dropwizardVersion = '0.7.1'
+        dropwizardCoreJar   = "io.dropwizard:dropwizard-core:$dropwizardVersion"
+        dropwizardAssetsJar = "io.dropwizard:dropwizard-assets:$dropwizardVersion"
     }
 
     repositories {
