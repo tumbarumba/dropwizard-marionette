@@ -13,7 +13,7 @@ define([
                      function() {console.log("Auth failed")});
 
     app.addRegions({
-        container: 'body > .container'
+        wrapper: '.js-app-wrapper'
     });
 
     app.addInitializer(function() {
@@ -22,7 +22,7 @@ define([
 
         app.on("start", function(options) {
             var layout = new Layout();
-            app.container.show(layout);
+            app.wrapper.show(layout);
         });
 
         // start our backbone history for our router
