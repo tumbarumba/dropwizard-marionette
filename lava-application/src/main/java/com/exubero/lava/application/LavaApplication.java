@@ -2,6 +2,7 @@ package com.exubero.lava.application;
 
 import com.exubero.lava.application.health.TemplateHealthCheck;
 import com.exubero.lava.application.resources.HelloWorldResource;
+import com.exubero.lava.application.resources.SessionResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -25,12 +26,13 @@ public class LavaApplication extends Application<LavaConfiguration> {
     @Override
     public void run(LavaConfiguration configuration, Environment environment) throws Exception {
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
-        final HelloWorldResource resource = new HelloWorldResource(
-                configuration.getTemplate(), configuration.getDefaultName());
 
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().setUrlPattern("/api/*");
-        environment.jersey().register(resource);
+
+        environment.jersey().register(new HelloWorldResource(
+                configuration.getTemplate(), configuration.getDefaultName()));
+        environment.jersey().register(new SessionResource());
     }
 
 
