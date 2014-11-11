@@ -4,9 +4,9 @@ require.config({
         jquery:     'lib/jquery-1.11.1.min',
         underscore: 'lib/underscore-1.7.0.min',
         backbone:   'lib/backbone-1.1.2-min',
-        marionette: 'lib/backbone.marionette.umd-2.2.0.min',
+        marionette: 'lib/backbone.marionette.umd-2.2.0',
         handlebars: 'lib/handlebars-2.0.0',
-        text:       'lib/require-2.0.12'
+        text:       'lib/text-2.0.12'
     },
     shim: {
         jquery: {
@@ -36,7 +36,9 @@ require([
     'marionette',
     'handlebars',
     'app/app'
-], function(_, Marionette, Handlebars, App) {
+], function(_, Marionette, Handlebars, app) {
+    // Save app to window for debugging
+    window.app = app;
 
     // setup our templates to use curly braces
     _.templateSettings = {
@@ -73,7 +75,5 @@ require([
         };
     });
 
-    App.Auth.on('change', _.once(function(){
-        App.start();
-    }));
+    app.start();
 });

@@ -45,11 +45,12 @@ define([
             });
         },
 
-        getAuth: function(callback) {
+        getAuth: function(successCallback, errorCallback) {
             // getAuth is wrapped around our router
             // before we start any routers let us see if the user is valid
             this.fetch({
-                success: callback
+                success: successCallback,
+                error:   errorCallback
             });
         }
   });

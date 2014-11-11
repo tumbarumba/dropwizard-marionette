@@ -1,25 +1,28 @@
 define([
+    'backbone',
     'marionette',
     'app/router',
     'app/controller',
+    'app/auth',
     'app/view/_layout'
-], function(Marionette, Router, Controller, Layout) {
-    var App = new Marionette.Application();
+], function(Backbone, Marionette, Router, Controller, auth, Layout) {
+    var app = new Marionette.Application();
 
-    App.Auth = Auth;
-    App.Auth.getAuth();
+    app.auth = auth;
+    app.auth.getAuth(function() {console.log("Auth successful")},
+                     function() {console.log("Auth failed")});
 
-    App.addRegions({
-        wrapper: '#wrapper'
+    app.addRegions({
+        container: 'body > .container'
     });
 
-    App.addInitializer(function() {
+    app.addInitializer(function() {
         // start our router
-        new Router({controller: Controller.initialize(App)});
+        new Router({controller: new Controller(app)});
 
-        App.bind("initialize:after", function(options) {
+        app.on("start", function(options) {
             var layout = new Layout();
-            App.wrapper.show(layout);
+            app.container.show(layout);
         });
 
         // start our backbone history for our router
@@ -28,5 +31,5 @@ define([
         }
     });
 
-    return App;
+    return app;
 });
