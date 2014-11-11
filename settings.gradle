@@ -1,8 +1,17 @@
-include 'lava-api',
-        'lava-application',
-        'lava-client'
+include 'api',
+        'application',
+        'client'
+
+
 
 rootProject.name = 'lava'
-project(':lava-api').buildFileName          = 'lava-api.gradle'
-project(':lava-application').buildFileName  = 'lava-application.gradle'
-project(':lava-client').buildFileName       = 'lava-client.gradle'
+
+fixNames('api')
+fixNames('application')
+fixNames('client')
+
+def fixNames(moduleName) {
+    def module = project(":$moduleName")
+    module.name             = "${rootProject.name}-${moduleName}"
+    module.buildFileName    = "${moduleName}.gradle"
+}
