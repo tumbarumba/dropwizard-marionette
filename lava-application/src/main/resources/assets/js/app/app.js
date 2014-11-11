@@ -4,8 +4,10 @@ define([
     'app/router',
     'app/controller',
     'app/auth',
-    'app/view/_layout'
-], function(Backbone, Marionette, Router, Controller, auth, Layout) {
+    'app/view/_layout',
+    'app/view/navigation',
+    'app/view/header'
+], function(Backbone, Marionette, Router, Controller, auth, LayoutView, NavigationView, HeaderView) {
     var app = new Marionette.Application();
 
     app.auth = auth;
@@ -21,8 +23,10 @@ define([
         new Router({controller: new Controller(app)});
 
         app.on("start", function(options) {
-            var layout = new Layout();
-            app.wrapper.show(layout);
+            var layoutView = new LayoutView();
+            app.wrapper.show(layoutView);
+            layoutView.navigationRegion.show(new NavigationView());
+            layoutView.headerRegion.show(new HeaderView());
         });
 
         // start our backbone history for our router
