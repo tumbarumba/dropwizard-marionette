@@ -1,3 +1,7 @@
+.navbar-inverse {
+    background-color: rgba(34, 34, 34, 0.7);
+}
+
 .jumbotron {
     margin-bottom: 1em;
     background-image: url(../img/hot-lava.jpg);

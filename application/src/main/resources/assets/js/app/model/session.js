@@ -55,5 +55,5 @@ define([
         }
   });
 
-  return new SessionModel;
+  return SessionModel;
 });

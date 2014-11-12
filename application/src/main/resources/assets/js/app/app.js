@@ -19,8 +19,10 @@ define([
     });
 
     app.addInitializer(function() {
+        var controller = new Controller({app: app});
+
         // start our router
-        new Router({controller: new Controller(app)});
+        new Router({controller: controller});
 
         app.on("start", function(options) {
             var layoutView = new LayoutView();

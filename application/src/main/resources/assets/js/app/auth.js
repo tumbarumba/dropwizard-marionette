@@ -1,3 +1,5 @@
 define(['app/model/session'], function(SessionModel) {
-    return SessionModel;
+    var auth = new SessionModel();
+
+    return auth;
 });
