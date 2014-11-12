@@ -1,5 +1,6 @@
 require.config({
     baseUrl: 'js',
+//    urlArgs: '_=' + (new Date().getTime()),
     paths: {
         jquery:     'lib/jquery-1.11.1.min',
         underscore: 'lib/underscore-1.7.0.min',
@@ -27,8 +28,7 @@ require.config({
             deps: ['jquery', 'marionette'],
             exports: 'Handlebars'
         }
-    },
-    urlArgs: '_=' + (new Date().getTime())
+    }
 });
 
 require([

@@ -11,7 +11,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/hello-world")
+@Path("/hello/:name")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
     private final String template;
@@ -27,8 +27,8 @@ public class HelloWorldResource {
     @GET
     @Timed
     public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        final String value = String.format(template, name.or(defaultName));
-        return new Saying(counter.incrementAndGet(), value);
+        final String greeting = String.format(template, name.or(defaultName));
+        return new Saying(counter.incrementAndGet(), greeting);
     }
 
 }
