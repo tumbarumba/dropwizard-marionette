@@ -28,7 +28,7 @@ define([
         app.on("start", function(options) {
             var layoutView = new LayoutView();
             app.wrapper.show(layoutView);
-            layoutView.navigationRegion.show(new NavigationView());
+            layoutView.navigationRegion.show(new NavigationView({controller: controller}));
             layoutView.headerRegion.show(new HeaderView());
             layoutView.contentRegion.show(new GreetingView());
         });
