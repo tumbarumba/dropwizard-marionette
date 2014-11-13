@@ -24,10 +24,12 @@ define([
                 console.log('GreetingView#initialize');
             },
 
-            onGreet: function() {
+            onGreet: function(event) {
                 var name = this.$('.name').val(),
                     hello = new HelloModel({name: name}),
                     view = this;
+
+                event.preventDefault();
 
                 console.log('Looking to greet ' + name);
                 hello.on('sync', function() {
