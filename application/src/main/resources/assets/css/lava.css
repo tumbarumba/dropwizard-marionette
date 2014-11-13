@@ -16,3 +16,9 @@
 .jumbotron .content {
     margin-top: 70px;
 }
+
+.hello {
+    font-weight: bold;
+    font-size: large;
+    padding: 1em;
+}

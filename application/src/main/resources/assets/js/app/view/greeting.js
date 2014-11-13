@@ -1,23 +1,42 @@
 define([
     'marionette',
-    'text!app/view/greeting.mustache'
-], function(Marionette, greetingTemplate) {
-    var GreetingView = Marionette.ItemView.extend({
-        template: greetingTemplate,
+    'text!app/view/greeting.mustache',
+    'app/model/hello'
+], function(Marionette, greetingTemplate, HelloModel) {
+    var HelloView = Marionette.ItemView.extend({
+            model: HelloModel,
+            template: '{{content}}',
+            tagName: 'p',
+            className: 'hello'
+        }),
+        GreetingView = Marionette.LayoutView.extend({
+            template: greetingTemplate,
 
-        events: {
-            'click button.doGreet': 'onGreet'
-        },
+            events: {
+                'click button.doGreet': 'onGreet'
+            },
 
-        initialize: function(options) {
-            console.log('GreetingView#initialize');
-        },
+            regions: {
+                messageRegion: '.js-message-region'
+            },
 
-        onGreet: function() {
-            var name = this.$('.name').val();
-            console.log('Greeting ' + name);
-        }
-    });
+            initialize: function(options) {
+                console.log('GreetingView#initialize');
+            },
+
+            onGreet: function() {
+                var name = this.$('.name').val(),
+                    hello = new HelloModel({name: name}),
+                    view = this;
+
+                console.log('Looking to greet ' + name);
+                hello.on('sync', function() {
+                    console.log('Greeting received for ' + name);
+                    view.messageRegion.show(new HelloView({model: hello}));
+                });
+                hello.fetch();
+            }
+        });
 
     return GreetingView;
 });

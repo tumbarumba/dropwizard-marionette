@@ -34,9 +34,7 @@ define([
         });
 
         // start our backbone history for our router
-        if (Backbone.history){
-          Backbone.history.start({pushState: true});
-        }
+        Backbone.history.start({pushState: true});
     });
 
     return app;
