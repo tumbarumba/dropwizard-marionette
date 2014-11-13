@@ -6,7 +6,7 @@ define([
         template: greetingTemplate,
 
         events: {
-            'click button.doGreet': 'onGreetx'
+            'click button.doGreet': 'onGreet'
         },
 
         initialize: function(options) {
@@ -14,7 +14,7 @@ define([
         },
 
         onGreet: function() {
-            var name = this.$('#name').text();
+            var name = this.$('.name').val();
             console.log('Greeting ' + name);
         }
     });
