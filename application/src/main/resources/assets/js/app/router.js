@@ -3,8 +3,12 @@ define([
 ], function(Marionette) {
     var Router = Marionette.AppRouter.extend({
         appRoutes: {
-            '':         'gotoHome',
-            'about':    'gotoAbout'
+            '':         'navigateHome',
+            'about':    'navigateAbout'
+        },
+
+        onRoute: function(name, path, routeArgs) {
+            console.log('onRoute: name(' + name + '), path(' + path + ')');
         }
     });
 

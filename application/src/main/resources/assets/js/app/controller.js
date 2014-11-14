@@ -1,17 +1,21 @@
 define([
-    'marionette',
-], function(Marionette) {
+    'backbone',
+    'marionette'
+], function(Backbone, Marionette) {
     var Controller = Marionette.Controller.extend({
         initialize: function(options) {
             this.app = options.app;
+            this.addressBar = new Backbone.Router();
         },
 
-        gotoHome: function() {
-            console.log('controller: gotoHome');
+        navigateHome: function() {
+            this.addressBar.navigate('/');
+            console.log('controller: navigateHome');
         },
 
-        gotoAbout: function() {
-            console.log('controller: gotoAbout');
+        navigateAbout: function() {
+            this.addressBar.navigate('/about');
+            console.log('controller: navigateAbout');
         }
     });
 

@@ -1,6 +1,5 @@
 package com.exubero.lava.application.resources;
 
-import com.codahale.metrics.annotation.Timed;
 import com.google.common.io.Resources;
 import com.sun.jersey.api.NotFoundException;
 
@@ -18,6 +17,15 @@ import java.nio.charset.Charset;
 public class ApplicationHtmlResource {
 
     @GET
+    public String root() {
+        return applicationHtml();
+    }
+
+    @GET @Path("about")
+    public String about() {
+        return applicationHtml();
+    }
+
     public String applicationHtml() {
         try {
             return Resources.toString(htmlResourceUrl(), Charset.forName("UTF-8"));

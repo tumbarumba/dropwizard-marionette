@@ -16,12 +16,12 @@ define([
 
         navigateHome: function(event) {
             event.preventDefault();
-            this.controller.gotoHome();
+            this.controller.navigateHome();
         },
 
         navigateAbout: function(event) {
             event.preventDefault();
-            this.controller.gotoAbout();
+            this.controller.navigateAbout();
         }
 
     });
