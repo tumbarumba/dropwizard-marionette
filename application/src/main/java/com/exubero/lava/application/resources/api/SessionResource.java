@@ -1,4 +1,4 @@
-package com.exubero.lava.application.resources;
+package com.exubero.lava.application.resources.api;
 
 import com.codahale.metrics.annotation.Timed;
 import com.exubero.lava.api.Session;
@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/session")
+@Path("/api/session")
 @Produces(MediaType.APPLICATION_JSON)
 public class SessionResource {
     private final AtomicLong counter;

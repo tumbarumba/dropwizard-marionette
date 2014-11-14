@@ -20,10 +20,6 @@ define([
                 messageRegion: '.js-message-region'
             },
 
-            initialize: function(options) {
-                console.log('GreetingView#initialize');
-            },
-
             onGreet: function(event) {
                 var name = this.$('.name').val(),
                     hello = new HelloModel({name: name}),

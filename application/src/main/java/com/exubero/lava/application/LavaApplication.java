@@ -2,8 +2,9 @@ package com.exubero.lava.application;
 
 import com.codahale.metrics.health.HealthCheckRegistry;
 import com.exubero.lava.application.health.TemplateHealthCheck;
-import com.exubero.lava.application.resources.HelloWorldResource;
-import com.exubero.lava.application.resources.SessionResource;
+import com.exubero.lava.application.resources.ApplicationHtmlResource;
+import com.exubero.lava.application.resources.api.HelloWorldResource;
+import com.exubero.lava.application.resources.api.SessionResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.jersey.setup.JerseyEnvironment;
@@ -22,7 +23,10 @@ public class LavaApplication extends Application<LavaConfiguration> {
 
     @Override
     public void initialize(Bootstrap<LavaConfiguration> bootstrap) {
-        bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
+        bootstrap.addBundle(new AssetsBundle("/assets/bootstrap-3.3.0", "/bootstrap", null, "bootstrap"));
+        bootstrap.addBundle(new AssetsBundle("/assets/css",             "/css",       null, "css"));
+        bootstrap.addBundle(new AssetsBundle("/assets/img",             "/img",       null, "img"));
+        bootstrap.addBundle(new AssetsBundle("/assets/js",              "/js",        null, "js"));
     }
 
     @Override
@@ -37,9 +41,9 @@ public class LavaApplication extends Application<LavaConfiguration> {
     }
 
     private void configureResources(LavaConfiguration config, JerseyEnvironment jersey) {
-        jersey.setUrlPattern("/api/*");
         jersey.register(new HelloWorldResource(config.getTemplate(), config.getDefaultName()));
         jersey.register(new SessionResource());
+        jersey.register(new ApplicationHtmlResource());
     }
 
 }
