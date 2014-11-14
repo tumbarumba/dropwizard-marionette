@@ -5,16 +5,15 @@ define([
     var Controller = Marionette.Controller.extend({
         initialize: function(options) {
             this.app = options.app;
-            this.addressBar = new Backbone.Router();
         },
 
         navigateHome: function() {
-            this.addressBar.navigate('/');
+            Backbone.history.navigate('/');
             console.log('controller: navigateHome');
         },
 
         navigateAbout: function() {
-            this.addressBar.navigate('/about');
+            Backbone.history.navigate('/about');
             console.log('controller: navigateAbout');
         }
     });
