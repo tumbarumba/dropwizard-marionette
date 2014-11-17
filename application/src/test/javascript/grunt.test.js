@@ -1,0 +1,50 @@
+/*global module, process*/
+module.exports = function (grunt) {
+    'use strict';
+
+    /**
+     * Testing and quality related tasks.
+     */
+
+    var jsFiles = [
+        'src/main/resources/assets/js/**/*.js',
+        'src/test/javascript/**/*.js',
+        'Gruntfile.js'
+    ];
+
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.config.set('jshint', {
+        options: {
+            jshintrc: '../../.jshintrc'
+        },
+        dev: {
+            src: jsFiles
+        },
+        ci: {
+            options: {
+                reporter: 'checkstyle',
+                reporterOutput: 'target/jshint.xml'
+            },
+            src: jsFiles
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.config.set('karma', {
+        options: {
+            configFile: 'karma.conf.js'
+        },
+        unit: {
+            browsers: ['Chrome'],
+            singleRun: false,
+            preprocessors: {},
+            reporters: ['progress']
+        },
+        ci: {
+            // Empty on purpose, as we're just reusing the karma.conf settings.
+        }
+    });
+
+    grunt.registerTask('default', ['jshint:dev']);
+    grunt.registerTask('maven-test', ['jshint:dev', 'karma:ci']);
+};

@@ -38,7 +38,7 @@ gradle assemble
 Start the application like this:
 
 ```
-java -jar application/build/libs/lava-application-all.jar server application/src/main/configuration/hello-world.yml
+java -jar application/build/libs/lava-application-all.jar server application/src/main/config/hello-world.yml
 ```
 
 You can now view the running application by pointing your browser at [http://localhost:8080](http://localhost:8080)
