@@ -2,7 +2,6 @@ package com.exubero.lava.application.resources.api;
 
 import com.codahale.metrics.annotation.Timed;
 import com.exubero.lava.api.Saying;
-import com.google.common.base.Optional;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

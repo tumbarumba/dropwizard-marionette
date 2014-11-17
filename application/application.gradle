@@ -4,6 +4,9 @@ dependencies {
     compile project(':lava-api')
     compile dropwizardCoreJar
     compile dropwizardAssetsJar
+
+    testCompile junitJar
+    testCompile mockitoJar
 }
 
 fatJar {

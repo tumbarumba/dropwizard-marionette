@@ -10,6 +10,9 @@ subprojects {
         dropwizardVersion = '0.7.1'
         dropwizardCoreJar   = "io.dropwizard:dropwizard-core:$dropwizardVersion"
         dropwizardAssetsJar = "io.dropwizard:dropwizard-assets:$dropwizardVersion"
+
+        junitJar = 'junit:junit:4.11'
+        mockitoJar = 'org.mockito:mockito-all:1.9.5'
     }
 
     repositories {

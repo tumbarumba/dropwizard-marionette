@@ -2,8 +2,6 @@ include 'api',
         'application',
         'client'
 
-
-
 rootProject.name = 'lava'
 
 fixNames('api')
