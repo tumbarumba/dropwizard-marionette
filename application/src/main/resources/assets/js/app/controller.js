@@ -2,6 +2,8 @@ define([
     'backbone',
     'marionette'
 ], function(Backbone, Marionette) {
+    'use strict';
+
     var Controller = Marionette.Controller.extend({
         initialize: function(options) {
             this.app = options.app;

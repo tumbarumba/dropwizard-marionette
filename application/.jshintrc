@@ -17,6 +17,9 @@
     "browser": true,
 
     "globals": {
-        "define": true
+        "alert": true,
+        "console": true,
+        "define": true,
+        "require": true
     }
 }

@@ -9,11 +9,13 @@ define([
     'app/view/header',
     'app/view/greeting'
 ], function(Backbone, Marionette, Router, Controller, auth, LayoutView, NavigationView, HeaderView, GreetingView) {
+    'use strict';
+
     var app = new Marionette.Application();
 
     app.auth = auth;
-    app.auth.getAuth(function() {console.log("Auth successful")},
-                     function() {console.log("Auth failed")});
+    app.auth.getAuth(function() { console.log('Auth successful'); },
+                     function() { console.log('Auth failed'); });
 
     app.addRegions({
         wrapper: '.js-app-wrapper'
@@ -25,7 +27,7 @@ define([
         // start our router
         new Router({controller: controller});
 
-        app.on("start", function(options) {
+        app.on('start', function(options) {
             var layoutView = new LayoutView();
             app.wrapper.show(layoutView);
             layoutView.navigationRegion.show(new NavigationView({controller: controller}));

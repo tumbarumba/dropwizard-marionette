@@ -37,6 +37,8 @@ require([
     'handlebars',
     'app/app'
 ], function(_, Marionette, Handlebars, app) {
+    'use strict';
+
     // Save app to window for debugging
     window.app = app;
 
@@ -52,9 +54,9 @@ require([
 
         // Make sure we have a template before trying to compile it
         if (!template || template.length === 0) {
-            var msg = "Could not find template: '" + templateId + "'";
+            var msg = 'Could not find template: "' + templateId + '"';
             var err = new Error(msg);
-            err.name = "NoTemplateError";
+            err.name = 'NoTemplateError';
             throw err;
         }
         return template;
@@ -64,16 +66,6 @@ require([
     Marionette.TemplateCache.prototype.compileTemplate = function(rawTemplate) {
         return Handlebars.compile(rawTemplate);
     };
-
-    // handlebars helper dateFormat (momentjs)
-    Handlebars.registerHelper('dateFormat', function(context, block) {
-        if (window.moment) {
-            var f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
-            return moment(context).format(f); //had to remove Date(context)
-        } else {
-            return context;   //  moment plugin not available. return data as is.
-        };
-    });
 
     app.start();
 });

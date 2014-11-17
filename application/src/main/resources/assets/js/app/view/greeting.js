@@ -3,6 +3,8 @@ define([
     'text!app/view/greeting.mustache',
     'app/model/hello'
 ], function(Marionette, greetingTemplate, HelloModel) {
+    'use strict';
+
     var HelloView = Marionette.ItemView.extend({
             model: HelloModel,
             template: '{{content}}',

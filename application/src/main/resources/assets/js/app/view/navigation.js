@@ -2,6 +2,8 @@ define([
     'marionette',
     'text!app/view/navigation.mustache'
 ], function(Marionette, navigationTemplate) {
+    'use strict';
+
     var NavigationView = Marionette.ItemView.extend({
         template: navigationTemplate,
 

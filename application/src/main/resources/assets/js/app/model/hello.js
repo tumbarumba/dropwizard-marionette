@@ -1,6 +1,8 @@
 define([
     'backbone'
 ], function(Backbone) {
+    'use strict';
+
     var HelloModel = Backbone.Model.extend({
         urlRoot: '/api/hello',
 

@@ -1,6 +1,9 @@
 define([
+    'jquery',
     'backbone'
-], function(Backbone) {
+], function($, Backbone) {
+    'use strict';
+
     var SessionModel = Backbone.Model.extend({
         urlRoot: '/api/session',
         initialize: function () {
@@ -21,7 +24,7 @@ define([
             var that = this;
             this.save(creds, {
                 success: function (model, resp) {
-                    if (resp.success == false) {
+                    if (resp.success === false) {
                         alert(resp.message);
                     }
                     that.unset('password');
