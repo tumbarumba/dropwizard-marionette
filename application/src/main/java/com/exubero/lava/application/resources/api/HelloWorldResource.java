@@ -26,7 +26,7 @@ public class HelloWorldResource {
     @GET
     @Timed
     public Saying sayHelloStranger() {
-        return sayHelloFriend("stranger");
+        return sayHelloFriend(defaultName);
     }
 
     @GET
