@@ -12,11 +12,13 @@ define([
         navigateHome: function() {
             Backbone.history.navigate('/');
             console.log('controller: navigateHome');
+            app.vent.trigger('navigate:home');
         },
 
-        navigateAbout: function() {
-            Backbone.history.navigate('/about');
-            console.log('controller: navigateAbout');
+        navigateGreeting: function() {
+            Backbone.history.navigate('/greeting');
+            console.log('controller: navigateGreeting');
+            app.vent.trigger('navigate:greeting');
         }
     });
 

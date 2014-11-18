@@ -21,8 +21,8 @@ public class ApplicationHtmlResource {
         return applicationHtml();
     }
 
-    @GET @Path("about")
-    public String about() {
+    @GET @Path("greeting")
+    public String greeting() {
         return applicationHtml();
     }
 

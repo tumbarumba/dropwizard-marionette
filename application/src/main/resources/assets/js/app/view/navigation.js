@@ -9,7 +9,7 @@ define([
 
         events: {
             'click a.home':     'navigateHome',
-            'click a.about':    'navigateAbout'
+            'click a.greeting': 'navigateGreeting'
         },
 
         initialize: function(options) {
@@ -21,9 +21,9 @@ define([
             this.controller.navigateHome();
         },
 
-        navigateAbout: function(event) {
+        navigateGreeting: function(event) {
             event.preventDefault();
-            this.controller.navigateAbout();
+            this.controller.navigateGreeting();
         }
 
     });

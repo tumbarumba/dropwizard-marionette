@@ -6,7 +6,7 @@ define([
     var Router = Marionette.AppRouter.extend({
         appRoutes: {
             '':         'navigateHome',
-            'about':    'navigateAbout'
+            'greeting': 'navigateGreeting'
         },
 
         onRoute: function(name, path, routeArgs) {
