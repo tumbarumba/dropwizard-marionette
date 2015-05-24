@@ -1,4 +1,5 @@
-apply plugin: 'eu.appsatori.fatjar'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 dependencies {
     compile project(':lava-api')
@@ -9,13 +10,13 @@ dependencies {
     testCompile mockitoJar
 }
 
-fatJar {
-    baseName = project.name + '-all'
+mainClassName = 'com.exubero.lava.application.LavaApplication'
+
+jar {
     manifest {
-        attributes 'Main-Class': 'com.exubero.lava.application.LavaApplication'
+        attributes("Implementation-Title": "Lava Application", "Implementation-Version": project.version)
     }
-    exclude 'META-INF/*.SF',  'META-INF/*.DSA', 'META-INF/*.RSA'
 }
 
 
-assemble.dependsOn(':lava-application:fatJar')
+assemble.dependsOn(':lava-application:shadowJar')
