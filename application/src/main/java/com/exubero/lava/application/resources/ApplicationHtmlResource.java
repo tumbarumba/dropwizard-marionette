@@ -1,9 +1,9 @@
 package com.exubero.lava.application.resources;
 
 import com.google.common.io.Resources;
-import com.sun.jersey.api.NotFoundException;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
