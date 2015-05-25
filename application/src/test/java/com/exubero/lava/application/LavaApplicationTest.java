@@ -12,8 +12,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class LavaApplicationTest {
-    @Test public void
-    handlesResources() throws Exception {
+    @Test
+    public void handlesResources() throws Exception {
         final Environment         environment   = mock(Environment.class);
         final JerseyEnvironment   jersey        = mock(JerseyEnvironment.class);
         final HealthCheckRegistry healthChecks  = mock(HealthCheckRegistry.class);
