@@ -4,12 +4,8 @@ include 'api',
 
 rootProject.name = 'lava'
 
-fixNames('api')
-fixNames('application')
-fixNames('client')
-
-def fixNames(moduleName) {
-    def module = project(":$moduleName")
-    module.name             = "${rootProject.name}-${moduleName}"
-    module.buildFileName    = "${moduleName}.gradle"
+rootProject.children.each { it ->
+    def moduleName      = it.name
+    it.name             = "${rootProject.name}-${moduleName}"
+    it.buildFileName    = "${moduleName}.gradle"
 }
